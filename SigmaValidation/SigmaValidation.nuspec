@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>SigmaValidation</id>
+    <version>1.0.1.3</version>
+    <authors>Santosh Shrestha</authors>
+    <owners>Santosh</owners>
+    <licenseUrl type="expression">Apache-2.0</licenseUrl>
+    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
+    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package description</description>
+    <releaseNotes>OperationResult added, email validation added</releaseNotes>
+    <copyright>Copyright ©2019</copyright>
+    <tags>SigmaValidation Validation Phone PhoneValidation Email EmailValidation</tags>
+  </metadata>
+</package>
