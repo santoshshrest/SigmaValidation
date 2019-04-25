@@ -11,3 +11,5 @@
 /SigmaValidation/Core.Validation/obj/
 /SigmaValidation/Core.Validation.Test/bin/
 /SigmaValidation/Core.Validation.Test/obj/
+/SigmaValidation/SigmaValidation.*.nupkg
+/SigmaValidation/SigmaValidation.nuspec
