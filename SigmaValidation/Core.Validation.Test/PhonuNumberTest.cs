@@ -92,5 +92,31 @@ namespace Core.Validation.Test
             Assert.False(result.Result);
             Assert.True(!string.IsNullOrEmpty(result.Message));
         }
+
+        [Fact]
+        public void IsPhoneNumber_NumberWithPlus()
+        {
+            //Arrange
+            string phoneNumber = "+222 222 2222";
+            //Act
+            var result = phoneNumber.IsPhoneNumber();
+            //Assert
+            Assert.True(result.Result);
+            Assert.Equal("Success", result.Message);
+            Assert.Null(result.Exception);
+        }
+
+        [Fact]
+        public void IsPhoneNumber_NumberWithCountryCode()
+        {
+            //Arrange
+            string phoneNumber = "+97725522866";
+            //Act
+            var result = phoneNumber.IsPhoneNumber("NP");
+            //Assert
+            Assert.True(result.Result);
+            Assert.Equal("Success", result.Message);
+            Assert.Null(result.Exception);
+        }
     }
 }

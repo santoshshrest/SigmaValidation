@@ -1,5 +1,7 @@
-﻿using Core.Validation.Model;
+﻿using Core.Validation.Ennumeration;
+using Core.Validation.Model;
 using System;
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace Core.Validation
@@ -17,6 +19,37 @@ namespace Core.Validation
         {
             var operation = new OperationResult<bool>(false);
             ValidatePhoneNumber(number, operation);
+            return operation;
+        }
+        /// <summary>
+        /// Check whether phone number is valid or not for defined culture
+        /// Culture denotes country language code i.e; Np
+        /// </summary>
+        /// <param name="number"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        public static OperationResult<bool> IsPhoneNumber(this string number, string code)
+        {
+            var operation = new OperationResult<bool>(false);
+            if (code.Length == 2)
+            {
+                switch ((CountryCodes)Enum.Parse(typeof(CountryCodes), code, true))
+                {
+                    case CountryCodes.NP:
+                        operation = number.IsNepaliPhoneNumber();
+                        break;
+                    case CountryCodes.US:
+                        break;
+                    case CountryCodes.DK:
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                operation = new OperationResult<bool>(false, null, $"Invalid country code {code}.");
+            }
             return operation;
         }
 
@@ -41,16 +74,34 @@ namespace Core.Validation
                         {
                             break;
                         }
-                        if (!hasBracket && !Regex.IsMatch(splittedNumber[i], "^[0-9]+$"))
+                        if (i == 0 && splittedNumber[0][0] == '+')
                         {
-                            operation.Result = false;
-                            operation.Message = $"Error: Phone number has error on {splittedNumber[i]} block.";
-                            break;
+                            splittedNumber[0] = splittedNumber[0].Replace("+", "00");
+                            if (!hasBracket && !Regex.IsMatch(splittedNumber[i], "^[0-9]+$"))
+                            {
+                                operation.Result = false;
+                                operation.Message = $"Error: Phone number has error on {splittedNumber[i]} block.";
+                                break;
+                            }
+                            else if (splittedNumber.Length - i == 1)
+                            {
+                                operation.Result = true;
+                                operation.Message = "Success";
+                            }
                         }
-                        else if (splittedNumber.Length - i == 1)
+                        else
                         {
-                            operation.Result = true;
-                            operation.Message = "Success";
+                            if (!hasBracket && !Regex.IsMatch(splittedNumber[i], "^[0-9]+$"))
+                            {
+                                operation.Result = false;
+                                operation.Message = $"Error: Phone number has error on {splittedNumber[i]} block.";
+                                break;
+                            }
+                            else if (splittedNumber.Length - i == 1)
+                            {
+                                operation.Result = true;
+                                operation.Message = "Success";
+                            }
                         }
                     }
                 }
