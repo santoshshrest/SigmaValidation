@@ -2,8 +2,8 @@
 ## Validation Plugin under active development. Functionality and documentation my change without notice. ##
 <pre>
 This plugin provides programmatic access to several data valiadtion functions. It consists of three validating modules.
-Each modules consists of one or more actions that perform an operation against your data validation process. All of methods will return
-result object indicating success or failure, any exceptions thrown and the resulting data.
+Each modules consists of one or more actions that perform an operation against your data validation process.
+All of the methods will return result object indicating success or failure, any exceptions thrown and the resulting data.
 <hr/>
 <b> Target Framework: .NetFramework 4.5/4.6, .Net Standard 2.0</b>
 </pre>
@@ -68,8 +68,8 @@ result object indicating success or failure, any exceptions thrown and the resul
             <b>2) Array data</b><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <code>
                     var variables = new object[] { "test 1", 1, 1.1, true };<br/>&nbsp;&nbsp;&nbsp;&nbsp;
-                    var result = variables.IsScalar();<br/>
-                </code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    var result = variables.IsScalar();
+                </code><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <b>3) List data</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <code>
                     var variables = new List<object> { "test", 1, 1.1, true };<br/>&nbsp;&nbsp;&nbsp;&nbsp;
