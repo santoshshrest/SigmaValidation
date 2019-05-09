@@ -1,7 +1,5 @@
 ﻿using Core.Validation.Model;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Core.Validation
@@ -21,7 +19,11 @@ namespace Core.Validation
             CheckEmail(email, operation);
             return operation;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="operation"></param>
         private static void CheckEmail(string email, OperationResult<bool> operation)
         {
             try

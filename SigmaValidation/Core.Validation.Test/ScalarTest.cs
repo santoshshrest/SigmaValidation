@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace Core.Validation.Test
@@ -64,13 +63,55 @@ namespace Core.Validation.Test
             var result = variable.IsScalar();
             //Assert
             Assert.False(result.Result);
-            Assert.Equal("Provided data is not scalar.", result.Message);
+            Assert.Equal($"Provided data is not scalar: {variable}. Data Type: {variable.GetType().Name}", result.Message);
         }
 
         [Fact]
-        public void IsScalar_CheckArrayVariable()
+        public void IsScalar_ArrayValid()
         {
+            //Arrange
+            object[] variables = new object[] { "str1", 1, 1.1, true };
+            //Act
+            var result = variables.IsScalar();
+            //Assert
+            Assert.True(result.Result);
+            Assert.Equal("Success", result.Message);
+        }
 
+        [Fact]
+        public void IsScalar_ArrayInvalid()
+        {
+            //Arrange
+            object[] variables = new object[] { "str1", 1, 1.1, DateTime.Now };
+            //Act
+            var result = variables.IsScalar();
+            //Assert
+            Assert.False(result.Result);
+            Assert.Equal($"Provided data is not scalar: {variables[3]}. Data Type: {variables[3].GetType().Name}", result.Message);
+        }
+
+        [Fact]
+        public void IsScalar_ListValid()
+        {
+            //Arrange
+            IList<object> variables = new List<object> { "str1", 1, 1.1, true };
+            //Act
+            var result = variables.IsScalar();
+            //Assert
+            Assert.True(result.Result);
+            Assert.Equal("Success", result.Message);
+        }
+
+        [Fact]
+        public void IsScalr_ListInvalid()
+        {
+            //Arrange
+            IList<object> variables = new List<object> { "str1", 1, 1.1, DateTime.Now };
+            //Act
+            var result = variables.IsScalar();
+            //Assert
+            Assert.True(result.Result);
+            Assert.Equal($"Provided data is not scalar: {variables[3]}. Data Type: {variables[3].GetType().Name}", result.Message);
         }
     }
 }

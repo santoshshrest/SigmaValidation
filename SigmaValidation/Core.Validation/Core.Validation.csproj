@@ -4,4 +4,10 @@
     <Version>0.1.0</Version>
     <RepositoryUrl></RepositoryUrl>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="DataHelper\PhoneNumber\Africa\" />
+    <Folder Include="DataHelper\PhoneNumber\SouthAmerica\" />
+    <Folder Include="PhoneNumber\Africa\" />
+    <Folder Include="PhoneNumber\SouthAmerica\" />
+  </ItemGroup>
 </Project>

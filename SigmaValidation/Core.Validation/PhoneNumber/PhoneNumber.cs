@@ -1,8 +1,5 @@
-﻿using Core.Validation.Ennumeration;
-using Core.Validation.Model;
+﻿using Core.Validation.Model;
 using System;
-using System.Globalization;
-using System.Text.RegularExpressions;
 
 namespace Core.Validation
 {
@@ -45,6 +42,15 @@ namespace Core.Validation
                             break;
                         case CountryCodes.DK:
                             operation = number.IsDenmarkPhoneNumber();
+                            break;
+                        case CountryCodes.IN:
+                            operation = number.IsIndiaPhoneNumber();
+                            break;
+                        case CountryCodes.CN:
+                            operation = number.IsChinaPhoneNumber();
+                            break;
+                        case CountryCodes.UK:
+                            operation = number.IsUKPhoneNumber();
                             break;
                         default:
                             operation = new OperationResult<bool>(false, null, $"Invalid country code {code}.");

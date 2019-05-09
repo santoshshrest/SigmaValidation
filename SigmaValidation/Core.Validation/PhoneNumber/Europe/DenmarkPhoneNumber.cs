@@ -1,5 +1,4 @@
-﻿using Core.Validation.DataHelper;
-using Core.Validation.Model;
+﻿using Core.Validation.Model;
 using System.Linq;
 
 namespace Core.Validation
@@ -7,10 +6,10 @@ namespace Core.Validation
     internal static class DenmarkPhoneNumber
     {
         /// <summary>
-        /// 
+        /// Check phone number for Denmark, checks country code then checks all codes such as mobile, land line, spare, split charge, free phone and premium codes
         /// </summary>
-        /// <param name="number"></param>
-        /// <returns></returns>
+        /// <param name="number">phone number to be validated</param>
+        /// <returns>operation result object, returns true or false as a result</returns>
         internal static OperationResult<bool> IsDenmarkPhoneNumber(this string number)
         {
             var operation = new OperationResult<bool>(false);
@@ -18,7 +17,7 @@ namespace Core.Validation
             if (operation.Result)
             {
                 string integerValue = CheckPhoneNumber.GetNumbers(number);
-                if (CheckInitials(integerValue) && (HasCorrectCode(integerValue, 4) || HasCorrectCode(integerValue, 0)))
+                if (IsInternationalCodes(integerValue) || IsAreaCode(integerValue))
                 {
                     operation = new OperationResult<bool>(true, null, "Success");
                 }
@@ -34,28 +33,28 @@ namespace Core.Validation
         /// </summary>
         /// <param name="integerValue"></param>
         /// <returns></returns>
-        private static bool CheckInitials(string integerValue)
+        private static bool IsInternationalCodes(string integerValue)
         {
-            bool hasZeros = integerValue.Substring(0, 2) == "00";
-            if (hasZeros)
+            bool isValid = false;
+            if (integerValue.Substring(0, 4) == "0045" && integerValue.Length == 12)
             {
-                return integerValue.Substring(0, 4) == "0045" && integerValue.Length == 12;
+                isValid = IsMobile(integerValue, 4) || IsLandLine(integerValue, 4) || IsSpare(integerValue, 4) || IsSplitCharge(integerValue, 4) || IsFreePhone(integerValue, 4) || IsPremium(integerValue, 4);
             }
-            else
-            {
-                return integerValue.Length == 8;
-            }
+            return isValid;
         }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="integerValue"></param>
-        /// <param name="startIndex"></param>
         /// <returns></returns>
-        private static bool HasCorrectCode(string integerValue, int startIndex)
+        private static bool IsAreaCode(string integerValue)
         {
-            bool hasCorrectCode = IsMobile(integerValue, 4) || IsLandLine(integerValue, 4) || IsSpare(integerValue, 4) || IsSplitCharge(integerValue, 4) || IsFreePhone(integerValue, 4) || IsPremium(integerValue, 4);
-            return hasCorrectCode;
+            bool isValid = false;
+            if (integerValue.Length == 8)
+            {
+                isValid = IsMobile(integerValue, 0) || IsLandLine(integerValue, 0) || IsSpare(integerValue, 0) || IsSplitCharge(integerValue, 0) || IsFreePhone(integerValue, 0) || IsPremium(integerValue, 0);
+            }
+            return isValid;
         }
         /// <summary>
         /// 
@@ -76,7 +75,7 @@ namespace Core.Validation
         /// <returns></returns>
         private static bool IsLandLine(string integerValue, int startIndex)
         {
-            bool isLandLine = DataCollections.DK_MobileCodes.Contains(integerValue.Substring(startIndex, 2));
+            bool isLandLine = DataCollections.DK_LandLineCodes.Contains(integerValue.Substring(startIndex, 2));
             return isLandLine;
         }
         /// <summary>
@@ -87,7 +86,7 @@ namespace Core.Validation
         /// <returns></returns>
         private static bool IsSpare(string integerValue, int startIndex)
         {
-            bool isSpare = DataCollections.DK_MobileCodes.Contains(integerValue.Substring(startIndex, 2));
+            bool isSpare = DataCollections.DK_SpareCodes.Contains(integerValue.Substring(startIndex, 2));
             return isSpare;
         }
         /// <summary>
@@ -98,7 +97,7 @@ namespace Core.Validation
         /// <returns></returns>
         private static bool IsSplitCharge(string integerValue, int startIndex)
         {
-            bool isSplitCharge = DataCollections.DK_MobileCodes.Contains(integerValue.Substring(startIndex, 2));
+            bool isSplitCharge = DataCollections.DK_SplitChargeCodes.Contains(integerValue.Substring(startIndex, 2));
             return isSplitCharge;
         }
         /// <summary>
@@ -109,7 +108,7 @@ namespace Core.Validation
         /// <returns></returns>
         private static bool IsFreePhone(string integerValue, int startIndex)
         {
-            bool isFreePhone = DataCollections.DK_MobileCodes.Contains(integerValue.Substring(startIndex, 2));
+            bool isFreePhone = DataCollections.DK_FreePhoneCodes.Contains(integerValue.Substring(startIndex, 2));
             return isFreePhone;
         }
         /// <summary>
@@ -120,7 +119,7 @@ namespace Core.Validation
         /// <returns></returns>
         private static bool IsPremium(string integerValue, int startIndex)
         {
-            bool isPremium = DataCollections.DK_MobileCodes.Contains(integerValue.Substring(startIndex, 2));
+            bool isPremium = DataCollections.DK_PremiumCodes.Contains(integerValue.Substring(startIndex, 2));
             return isPremium;
         }
     }

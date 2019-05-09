@@ -1,5 +1,4 @@
-﻿using Core.Validation.DataHelper;
-using Core.Validation.Model;
+﻿using Core.Validation.Model;
 using System.Linq;
 
 namespace Core.Validation
@@ -18,7 +17,7 @@ namespace Core.Validation
             if (operation.Result)
             {
                 string integerValue = CheckPhoneNumber.GetNumbers(number);
-                if (CheckInitials(integerValue) && (HasCorrectCode(integerValue, 5) || HasCorrectCode(integerValue, 1) || HasCorrectCode(integerValue, 0)))
+                if (IsInternationalCode(integerValue) || IsAreaCode(integerValue) || IsCellular(integerValue))
                 {
                     operation = new OperationResult<bool>(true, null, "Success");
                 }
@@ -34,20 +33,46 @@ namespace Core.Validation
         /// </summary>
         /// <param name="integerValue"></param>
         /// <returns></returns>
-        private static bool CheckInitials(string integerValue)
+        private static bool IsInternationalCode(string integerValue)
         {
-            if (integerValue.Substring(0, 2) == "00")
+            bool isValid = false;
+            if (integerValue.Substring(0, 5) == "00977" && (integerValue.Length == 13 || integerValue.Length == 15))
             {
-                return integerValue.Substring(0, 5) == "00977" && (integerValue.Length == 13 || integerValue.Length == 15);
+                isValid = HasCorrectCode(integerValue, 5);
             }
-            else if (integerValue.Substring(0, 1) == "0")
+            return isValid;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="integerValue"></param>
+        /// <returns></returns>
+        private static bool IsAreaCode(string integerValue)
+        {
+            bool isValid = false;
+            if (integerValue.Substring(0, 1) == "0" && integerValue.Length == 9)
             {
-                return integerValue.Length == 9;
+                isValid = IsLandLine(integerValue, 1);
             }
-            else
+            else if (integerValue.Length == 8)
             {
-                return integerValue.Length == 6 || integerValue.Length == 7 || integerValue.Length == 9 || integerValue.Length == 10;
+                isValid = IsLandLine(integerValue, 0);
             }
+            return isValid;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="integerValue"></param>
+        /// <returns></returns>
+        private static bool IsCellular(string integerValue)
+        {
+            bool isValid = false;
+            if (integerValue.Length == 10)
+            {
+                isValid = IsMobile(integerValue, 0);
+            }
+            return isValid;
         }
         /// <summary>
         /// 
@@ -68,7 +93,7 @@ namespace Core.Validation
         /// <returns></returns>
         private static bool IsMobile(string integerValue, int startIndex)
         {
-            bool isMobile = DataCollections.NP_MobileCodes.Contains(integerValue.Substring(startIndex, 2));
+            bool isMobile = DataCollections.NP_MobileCodes.Contains(integerValue.Substring(startIndex, 3));
             return isMobile;
         }
         /// <summary>
@@ -81,12 +106,17 @@ namespace Core.Validation
         {
             bool isLandLine = false;
             string[] phoneInitials = new string[] { "4", "5", "6" };
-            if (DataCollections.NP_AreaCodes.Contains(integerValue.Substring(startIndex, 2)))
+            if (DataCollections.NP_AreaCodesOneDigit.Contains(integerValue.Substring(startIndex, 1)))
+            {
+                startIndex += 1;
+                isLandLine = phoneInitials.Contains(integerValue.Substring(startIndex, 1));
+            }
+            else if (DataCollections.NP_AreaCodesTwoDigits.Contains(integerValue.Substring(startIndex, 2)))
             {
                 startIndex += 2;
                 isLandLine = phoneInitials.Contains(integerValue.Substring(startIndex, 1));
             }
-            else if (DataCollections.NP_AreaCodes.Contains(integerValue.Substring(startIndex, 3)))
+            else if (DataCollections.NP_AreaCodesThreeDigits.Contains(integerValue.Substring(startIndex, 3)))
             {
                 startIndex += 3;
                 isLandLine = phoneInitials.Contains(integerValue.Substring(startIndex, 1));
