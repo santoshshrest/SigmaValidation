@@ -31,13 +31,16 @@ All of the methods will return result object indicating success or failure, any 
 
 - `IsPhoneNumber(string code)`:  
     - Check whether phone number is valid or not for provided country.
-    - Support country currently available;
+    - Support country, currently available;
         - Nepal (NP)
         - United States (US)
         - Denmark (DK)
         - India (IN)
         - China (CN)
         - United Kingdom (UK)
+        - Thailand (TH)
+        - Malaysia (MY)
+        - Singapore (SG)
 
     - Result is true for valid phone number
     - Result is false for invalid phone number and message is set in error message, if exception has occured while checking then Exception is set

@@ -7,10 +7,10 @@ namespace Core.Validation
     internal static class ChinaPhoneNumber
     {
         /// <summary>
-        /// 
+        /// Verifies China phone number. Checks international, area code and ccellular phone number.
         /// </summary>
-        /// <param name="number"></param>
-        /// <returns></returns>
+        /// <param name="number">Phone number to be verified</param>
+        /// <returns>Operation result returning result either true or false</returns>
         internal static OperationResult<bool> IsChinaPhoneNumber(this string number)
         {
             var operation = new OperationResult<bool>(false);
@@ -30,10 +30,10 @@ namespace Core.Validation
             return operation;
         }
         /// <summary>
-        /// 
+        /// Verifies phone number for international code applied, checks both landline and cellular
         /// </summary>
-        /// <param name="integerValue"></param>
-        /// <returns></returns>
+        /// <param name="integerValue">phone number to be verified</param>
+        /// <returns>bool value either true or false</returns>
         internal static bool IsInternationalCode(string integerValue)
         {
             bool isValid = false;
@@ -44,10 +44,10 @@ namespace Core.Validation
             return isValid;
         }
         /// <summary>
-        /// 
+        /// Verifies phone number for area code applied, checks landline
         /// </summary>
-        /// <param name="integerValue"></param>
-        /// <returns></returns>
+        /// <param name="integerValue">phone number to be verified</param>
+        /// <returns>bool value either true or false</returns>
         internal static bool IsAreaCode(string integerValue)
         {
             bool isValid = false;
@@ -58,10 +58,10 @@ namespace Core.Validation
             return isValid;
         }
         /// <summary>
-        /// 
+        /// Verifies phone number for mobile code appllied, check mobile
         /// </summary>
-        /// <param name="integerValue"></param>
-        /// <returns></returns>
+        /// <param name="integerValue">phone number to be verified</param>
+        /// <returns>bool value either true or false</returns>
         internal static bool IsCellular(string integerValue)
         {
             bool isValid = false;
@@ -72,11 +72,11 @@ namespace Core.Validation
             return isValid;
         }
         /// <summary>
-        /// 
+        /// Verifies phone number for land line
         /// </summary>
-        /// <param name="integerValue"></param>
-        /// <param name="startIndex"></param>
-        /// <returns></returns>
+        /// <param name="integerValue">phone number to be verified</param>
+        /// <param name="startIndex">start of the index with in phone number to compare data from</param>
+        /// <returns>bool value either true or false</returns>
         internal static bool IsLandLine(string integerValue, int startIndex)
         {
             bool isValid = false;
@@ -91,11 +91,11 @@ namespace Core.Validation
             return isValid;
         }
         /// <summary>
-        /// 
+        /// Verifies phone number for mobile
         /// </summary>
-        /// <param name="integerValue"></param>
-        /// <param name="startIndex"></param>
-        /// <returns></returns>
+        /// <param name="integerValue">phone number to be verified</param>
+        /// <param name="startIndex">start of the index with in phone number to compare data from</param>
+        /// <returns>bool value either true or false</returns>
         internal static bool IsMobile(string integerValue, int startIndex)
         {
             bool isValid = integerValue.Substring(startIndex, 1).Equals("1") && Regex.IsMatch($"{integerValue[1]}", "[3-9]");

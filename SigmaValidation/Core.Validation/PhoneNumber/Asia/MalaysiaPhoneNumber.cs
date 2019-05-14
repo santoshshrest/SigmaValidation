@@ -3,14 +3,14 @@ using System.Linq;
 
 namespace Core.Validation
 {
-    internal static class IndiaPhoneNumber
+    internal static class MalaysiaPhoneNumber
     {
         /// <summary>
-        /// Verifies India phone number. Checks international, area code and cellular phone number.
+        /// Verifies Malaysia phone number. Checks international, area code and cellular phone number.
         /// </summary>
-        /// <param name="number">phone number to be verified</param>
-        /// <returns></returns>
-        internal static OperationResult<bool> IsIndiaPhoneNumber(this string number)
+        /// <param name="number">Phone number to be verified</param>
+        /// <returns>Operation result returning result either true or false</returns>
+        internal static OperationResult<bool> IsMalaysiaPhoneNumber(this string number)
         {
             var operation = new OperationResult<bool>(false);
             CheckPhoneNumber.ValidatePhoneNumber(number, operation);
@@ -26,7 +26,6 @@ namespace Core.Validation
                     operation = new OperationResult<bool>(false, null, $"Invalid phone number {number}.");
                 }
             }
-
             return operation;
         }
         /// <summary>
@@ -37,7 +36,7 @@ namespace Core.Validation
         private static bool IsInternationalCode(string integerValue)
         {
             bool isValid = false;
-            if (integerValue.Substring(0, 4) == "0091" && integerValue.Length == 14)
+            if (integerValue.Substring(0, 4) == "0060" && (integerValue.Length == 12 || integerValue.Length == 13 || integerValue.Length == 14))
             {
                 isValid = IsLandLine(integerValue, 4) || IsMobile(integerValue, 4);
             }
@@ -51,13 +50,9 @@ namespace Core.Validation
         private static bool IsAreaCode(string integerValue)
         {
             bool isValid = false;
-            if (integerValue.Length == 10)
+            if (integerValue.Length == 8 || integerValue.Length == 9)
             {
                 isValid = IsLandLine(integerValue, 0);
-            }
-            else if (integerValue.Length >= 6 && integerValue.Length <= 8)
-            {
-                isValid = true;
             }
             return isValid;
         }
@@ -69,7 +64,7 @@ namespace Core.Validation
         private static bool IsCellular(string integerValue)
         {
             bool isValid = false;
-            if (integerValue.Length == 10)
+            if (integerValue.Length == 0 || integerValue.Length == 10)
             {
                 isValid = IsMobile(integerValue, 0);
             }
@@ -79,20 +74,16 @@ namespace Core.Validation
         /// Varifies phone number for land line
         /// </summary>
         /// <param name="integerValue">phone number to be verified</param>
-        /// <param name="startIndex"></param>
+        /// <param name="startIndex">start of the index with in phone number to compare data from</param>
         /// <returns>bool value either true or false</returns>
         private static bool IsLandLine(string integerValue, int startIndex)
         {
             bool isValid = false;
-            if (DataCollections.IN_AreaCodesTwoDigits.Contains(integerValue.Substring(startIndex, 2)))
+            if (DataCollections.MY_AreaCodesOneDigit.Contains(integerValue.Substring(startIndex, 1)))
             {
                 isValid = true;
             }
-            else if (DataCollections.IN_AreaCodesThreeDigits.Contains(integerValue.Substring(startIndex, 3)))
-            {
-                isValid = true;
-            }
-            else if (DataCollections.IN_AreaCodesFourDigits.Contains(integerValue.Substring(startIndex, 4)))
+            else if (DataCollections.MY_AreaCodesTwoDigits.Contains(integerValue.Substring(startIndex, 2)))
             {
                 isValid = true;
             }
@@ -102,11 +93,11 @@ namespace Core.Validation
         /// Varifies phone number for mobile
         /// </summary>
         /// <param name="integerValue">phone number to be verified</param>
-        /// <param name="startIndex"></param>
+        /// <param name="startIndex">start of the index with in phone number to compare data from</param>
         /// <returns>bool value either true or false</returns>
         private static bool IsMobile(string integerValue, int startIndex)
         {
-            bool isValid = DataCollections.IN_Mobile.Contains(integerValue.Substring(startIndex, 1));
+            bool isValid = integerValue.Substring(startIndex, 1).Equals("1");
             return isValid;
         }
     }

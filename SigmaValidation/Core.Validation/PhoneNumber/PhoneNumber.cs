@@ -52,6 +52,15 @@ namespace Core.Validation
                         case CountryCodes.UK:
                             operation = number.IsUKPhoneNumber();
                             break;
+                        case CountryCodes.TH:
+                            operation = number.IsThailandPhoneNumber();
+                            break;
+                        case CountryCodes.MY:
+                            operation = number.IsMalaysiaPhoneNumber();
+                            break;
+                        case CountryCodes.SG:
+                            operation = number.IsSingaporePhoneNumber();
+                            break;
                         default:
                             operation = new OperationResult<bool>(false, null, $"Invalid country code {code}.");
                             break;
