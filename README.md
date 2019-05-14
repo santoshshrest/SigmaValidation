@@ -63,18 +63,24 @@ All of the methods will return result object indicating success or failure, any 
     - Data is scalar if the data type is either of string, int, double or 
     - Operation result is true for valid data type
     - False if email address is not valid. Message is set and if exception occured exception is set
-    - Eg;   <b>1) Simple data</b><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <code>
-                    var variable = "test data 1";<br/>&nbsp;&nbsp;&nbsp;&nbsp;
-                    var result =  variable.IsScalar();
-                </code><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <b>2) Array data</b><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <code>
-                    var variables = new object[] { "test 1", 1, 1.1, true };<br/>&nbsp;&nbsp;&nbsp;&nbsp;
-                    var result = variables.IsScalar();
-                </code><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <b>3) List data</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <code>
-                    var variables = new List<object> { "test", 1, 1.1, true };<br/>&nbsp;&nbsp;&nbsp;&nbsp;
-                    var result = variables.IsScalar();
-                </code>
+    - Eg;   <b>1) Simple data</b><br/>
+                <pre>
+                    <code>
+                        var variable = "test data 1";
+                        var result =  variable.IsScalar();
+                    </code>
+                </pre>
+            <b>2) Array data</b><br/>
+                <pre>
+                    <code>
+                        var variables = new object[] { "test 1", 1, 1.1, true };
+                        var result = variables.IsScalar();
+                    </code>
+                </pre>
+            <b>3) List data</b><br>
+                <pre>
+                    <code>
+                        var variables = new List<object> { "test", 1, 1.1, true };
+                        var result = variables.IsScalar();
+                    </code>
+                </pre>
