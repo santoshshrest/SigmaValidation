@@ -1,0 +1,580 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Core.Validation</name>
+    </assembly>
+    <members>
+        <member name="M:Core.Validation.Email.IsEmail(System.String)">
+            <summary>
+            Check whether the email is valid or not.
+            Operation resut is true for vaid email
+            False if email address is not valid. Message is set and if exception occured exception is set
+            </summary>
+            <param name="email">Email address to validate</param>
+            <returns>operation result with properties, ErrorMessage (string), Exception and Result (bool)</returns>
+        </member>
+        <member name="M:Core.Validation.Email.CheckEmail(System.String,Core.Validation.Model.OperationResult{System.Boolean})">
+            <summary>
+            
+            </summary>
+            <param name="email"></param>
+            <param name="operation"></param>
+        </member>
+        <member name="F:Core.Validation.CountryCodes.NP">
+            <summary>
+            Nepal
+            </summary>
+        </member>
+        <member name="F:Core.Validation.CountryCodes.US">
+            <summary>
+            United States
+            </summary>
+        </member>
+        <member name="F:Core.Validation.CountryCodes.DK">
+            <summary>
+            Denmark
+            </summary>
+        </member>
+        <member name="F:Core.Validation.CountryCodes.IN">
+            <summary>
+            India
+            </summary>
+        </member>
+        <member name="F:Core.Validation.CountryCodes.CN">
+            <summary>
+            China
+            </summary>
+        </member>
+        <member name="F:Core.Validation.CountryCodes.UK">
+            <summary>
+            United Kingdom
+            </summary>
+        </member>
+        <member name="F:Core.Validation.CountryCodes.TH">
+            <summary>
+            Thailand
+            </summary>
+        </member>
+        <member name="F:Core.Validation.CountryCodes.MY">
+            <summary>
+            Malaysia
+            </summary>
+        </member>
+        <member name="F:Core.Validation.CountryCodes.SG">
+            <summary>
+            Singapore
+            </summary>
+        </member>
+        <member name="M:Core.Validation.ChinaPhoneNumber.IsChinaPhoneNumber(System.String)">
+            <summary>
+            Verifies China phone number. Checks international, area code and ccellular phone number.
+            </summary>
+            <param name="number">Phone number to be verified</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.ChinaPhoneNumber.IsInternationalCode(System.String)">
+            <summary>
+            Verifies phone number for international code applied, checks both landline and cellular
+            </summary>
+            <param name="integerValue">phone number to be verified</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.ChinaPhoneNumber.IsAreaCode(System.String)">
+            <summary>
+            Verifies phone number for area code applied, checks landline
+            </summary>
+            <param name="integerValue">phone number to be verified</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.ChinaPhoneNumber.IsCellular(System.String)">
+            <summary>
+            Verifies phone number for mobile code appllied, check mobile
+            </summary>
+            <param name="integerValue">phone number to be verified</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.ChinaPhoneNumber.IsLandLine(System.String,System.Int32)">
+            <summary>
+            Verifies phone number for land line
+            </summary>
+            <param name="integerValue">phone number to be verified</param>
+            <param name="startIndex">start of the index with in phone number to compare data from</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.ChinaPhoneNumber.IsMobile(System.String,System.Int32)">
+            <summary>
+            Verifies phone number for mobile
+            </summary>
+            <param name="integerValue">phone number to be verified</param>
+            <param name="startIndex">start of the index with in phone number to compare data from</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.IndiaPhoneNumber.IsIndiaPhoneNumber(System.String)">
+            <summary>
+            Verifies India phone number. Checks international, area code and cellular phone number.
+            </summary>
+            <param name="number">phone number to be verified</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.IndiaPhoneNumber.IsInternationalCode(System.String)">
+            <summary>
+            Verifes phone number for international code applied, checks both landline and cellular
+            </summary>
+            <param name="integerValue">phone number to be verified</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.IndiaPhoneNumber.IsAreaCode(System.String)">
+            <summary>
+            Verifies phone number for area code applied, checks landline
+            </summary>
+            <param name="integerValue">phone number to be verified</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.IndiaPhoneNumber.IsCellular(System.String)">
+            <summary>
+            Verifies phone number for mobile code applied, check mobile
+            </summary>
+            <param name="integerValue">phone number to be verified</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.IndiaPhoneNumber.IsLandLine(System.String,System.Int32)">
+            <summary>
+            Varifies phone number for land line
+            </summary>
+            <param name="integerValue">phone number to be verified</param>
+            <param name="startIndex"></param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.IndiaPhoneNumber.IsMobile(System.String,System.Int32)">
+            <summary>
+            Varifies phone number for mobile
+            </summary>
+            <param name="integerValue">phone number to be verified</param>
+            <param name="startIndex"></param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.MalaysiaPhoneNumber.IsMalaysiaPhoneNumber(System.String)">
+            <summary>
+            Verifies Malaysia phone number. Checks international, area code and cellular phone number.
+            </summary>
+            <param name="number">Phone number to be verified</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.MalaysiaPhoneNumber.IsInternationalCode(System.String)">
+            <summary>
+            Verifes phone number for international code applied, checks both landline and cellular
+            </summary>
+            <param name="integerValue">phone number to be verified</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.MalaysiaPhoneNumber.IsAreaCode(System.String)">
+            <summary>
+            Verifies phone number for area code applied, checks landline
+            </summary>
+            <param name="integerValue">phone number to be verified</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.MalaysiaPhoneNumber.IsCellular(System.String)">
+            <summary>
+            Verifies phone number for mobile code applied, check mobile
+            </summary>
+            <param name="integerValue">phone number to be verified</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.MalaysiaPhoneNumber.IsLandLine(System.String,System.Int32)">
+            <summary>
+            Varifies phone number for land line
+            </summary>
+            <param name="integerValue">phone number to be verified</param>
+            <param name="startIndex">start of the index with in phone number to compare data from</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.MalaysiaPhoneNumber.IsMobile(System.String,System.Int32)">
+            <summary>
+            Varifies phone number for mobile
+            </summary>
+            <param name="integerValue">phone number to be verified</param>
+            <param name="startIndex">start of the index with in phone number to compare data from</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.NepalPhoneNumber.IsNepaliPhoneNumber(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.NepalPhoneNumber.IsInternationalCode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.NepalPhoneNumber.IsAreaCode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.NepalPhoneNumber.IsCellular(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.NepalPhoneNumber.HasCorrectCode(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.NepalPhoneNumber.IsMobile(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.NepalPhoneNumber.IsLandLine(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.SingaporePhoneNumber.IsSingaporePhoneNumber(System.String)">
+            <summary>
+            Verifies Singapore phone number. Checks international, area code and cellular phone number.
+            </summary>
+            <param name="number">Phone number to be verified</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.SingaporePhoneNumber.IsInternationalcode(System.String)">
+            <summary>
+            Verifes phone number for international code applied, checks both landline and cellular
+            </summary>
+            <param name="integerValue">Phone number to be verified</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.SingaporePhoneNumber.IsCellularOrPhone(System.String)">
+            <summary>
+            Verifies phone number for mobile or land line applied, check mobile or land line
+            </summary>
+            <param name="integerValue">Phone number to be verified</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.SingaporePhoneNumber.IsLandLine(System.String,System.Int32)">
+            <summary>
+            Varifies phone number for land line
+            </summary>
+            <param name="integerValue">Phone number to be verified</param>
+            <param name="startIndex">start of the index with in phone number to compare data from</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.SingaporePhoneNumber.IsMobile(System.String,System.Int32)">
+            <summary>
+            Varifies phone number for mobile
+            </summary>
+            <param name="integerValue">Phone number to be verified</param>
+            <param name="startIndex">start of the index with in phone number to compare data from</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.ThailandPhoneNumber.IsThailandPhoneNumber(System.String)">
+            <summary>
+            Verifies Thailand phone number. Checks international, area code and cellular phone number.
+            </summary>
+            <param name="number">Phone number to be verified</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.ThailandPhoneNumber.IsInternationalCode(System.String)">
+            <summary>
+            Verifes phone number for international code applied, checks both landline and cellular
+            </summary>
+            <param name="integerValue">phone number to be verified</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.ThailandPhoneNumber.IsAreaCode(System.String)">
+            <summary>
+            Verifies phone number for area code applied, checks landline
+            </summary>
+            <param name="integerValue">phone number to be verified</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.ThailandPhoneNumber.IsCellular(System.String)">
+            <summary>
+            Verifies phone number for mobile code applied, check mobile
+            </summary>
+            <param name="integerValue">phone number to be verified</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.ThailandPhoneNumber.IsLandLine(System.String,System.Int32)">
+            <summary>
+            Varifies phone number for land line
+            </summary>
+            <param name="integerValue">phone number to be verified</param>
+            <param name="startIndex">start of the index with in phone number to compare data from</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.ThailandPhoneNumber.IsMobile(System.String,System.Int32)">
+            <summary>
+            Varifies phone number for mobile
+            </summary>
+            <param name="integerValue">phone number to be verified</param>
+            <param name="startIndex">start of the index with in phone number to compare data from</param>
+            <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.CheckPhoneNumber.ValidatePhoneNumber(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="phoneNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.CheckPhoneNumber.CheckForOpenBracket(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="phoneNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.CheckPhoneNumber.SplitPhoneNumberWithMinusAndSpace(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="phoneNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.CheckPhoneNumber.ValidateBrackets(System.String,Core.Validation.Model.OperationResult{System.Boolean})">
+            <summary>
+            
+            </summary>
+            <param name="phoneNumber"></param>
+            <param name="operation"></param>
+        </member>
+        <member name="M:Core.Validation.DenmarkPhoneNumber.IsDenmarkPhoneNumber(System.String)">
+            <summary>
+            Check phone number for Denmark, checks country code then checks all codes such as mobile, land line, spare, split charge, free phone and premium codes
+            </summary>
+            <param name="number">phone number to be validated</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.DenmarkPhoneNumber.IsInternationalCodes(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.DenmarkPhoneNumber.IsAreaCode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.DenmarkPhoneNumber.IsMobile(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.DenmarkPhoneNumber.IsLandLine(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.DenmarkPhoneNumber.IsSpare(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.DenmarkPhoneNumber.IsSplitCharge(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.DenmarkPhoneNumber.IsFreePhone(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.DenmarkPhoneNumber.IsPremium(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.UKPhoneNumber.IsUKPhoneNumber(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.UKPhoneNumber.IsInternationalCode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.UKPhoneNumber.IsAreaCode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.UKPhoneNumber.IsLandLine(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.UKPhoneNumber.IsMobile(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.USPhoneNumber.IsUSPhoneNumber(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.USPhoneNumber.CheckInitials(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.USPhoneNumber.IsPhone(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.Validation.PhoneNumber">
+            <summary>
+            Validation of phone number provided.
+            This servie will validate number on randam number if not additional data is provided.
+            Additional data referes to From Data Dictionary flag and Country code.
+            On the case of bool flag (isFromDataDictionary) is true it will indentify correct number on the basis of country.
+            On the case of counry code which has two alphabets, eg; NP for Nepal it will identify phone on the basis of country code provided
+            </summary>
+        </member>
+        <member name="M:Core.Validation.PhoneNumber.IsPhoneNumber(System.String,System.Boolean)">
+            <summary>
+            Check whether phone number is valid or not.
+            Result is true for valid phone number
+            Result is false for invalid phone number and message is set in error message, if exception has occured while checking then Exception is set
+            </summary>
+            <param name="number">number (string) to be validated as valid phone number</param>
+            <param name="isFromDataDictionary">
+            Identifies where to validate phone number from data dictionary. Data dictionary has all list of countries and verifies all the blocks of phone  number.
+            It identifies country, type of number wheter it is land line (fixed) or celluler. If from data dictionary is true then country code must be provided.
+            Phone numer without country code will be treateded as invalid phone number.
+            </param>
+            <returns>operation result with properties, ErrorMessage (string), Exception and Result (bool)</returns>
+        </member>
+        <member name="M:Core.Validation.PhoneNumber.IsPhoneNumber(System.String,System.String)">
+            <summary>
+            Check whether phone number is valid or not for defined culture
+            Culture denotes country language code i.e; NP
+            </summary>
+            <param name="number">number (string) to be validated as valid phone number</param>
+            <param name="code">
+            Country code must be provided to verify the phone number based on country.
+            It has two alphabetes which is universal. Code cannot be number, empty string or null.
+            Invalid code will result into invalid phone number.
+            Example of country code; Nepal = NP, United States = US, Denmark = DK
+            </param>
+            <returns>operation result with properties, ErrorMessage (string), Exception and Result (bool)</returns>
+        </member>
+        <member name="M:Core.Validation.PhoneNumber.ValidateWithCountry(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.PhoneNumber.ValidateWithDictionary(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.Scalar.IsScalar(System.Object)">
+            <summary>
+            Check object variable as data type as scalar
+            object is scalar if data type is string, int, double or bool
+            </summary>
+            <param name="variable">object</param>
+            <returns>OperationResult with bool result, true is correct else false</returns>
+        </member>
+        <member name="M:Core.Validation.Scalar.IsScalar(System.Object[])">
+            <summary>
+            Check array of object as each data type as scalar
+            array is scalar if all data in array is string, int, double or bool
+            </summary>
+            <param name="variables">array of object</param>
+            <returns>OperationResult with bool result, true is correct else false</returns>
+        </member>
+        <member name="M:Core.Validation.Scalar.IsScalar(System.Collections.Generic.IList{System.Object})">
+            <summary>
+            Check list of object as each data type as scalar
+            list is scalar if all data in list is string, int, double or bool
+            </summary>
+            <param name="variables">OperationResult with bool result, true is correct else false</param>
+            <returns>OperationResult with bool result, true is correct else false</returns>
+        </member>
+        <member name="M:Core.Validation.SystemTool.ReadException(System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.SystemTool.WriteException(System.Exception,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="exception"></param>
+            <param name="errorMessage"></param>
+        </member>
+    </members>
+</doc>

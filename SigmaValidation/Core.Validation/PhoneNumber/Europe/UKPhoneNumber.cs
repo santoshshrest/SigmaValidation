@@ -10,23 +10,10 @@ namespace Core.Validation
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        internal static OperationResult<bool> IsUKPhoneNumber(this string number)
+        internal static bool IsUKPhoneNumber(this string number)
         {
-            var operation = new OperationResult<bool>(false);
-            CheckPhoneNumber.ValidatePhoneNumber(number, operation);
-            if (operation.Result)
-            {
-                string integerValue = CheckPhoneNumber.GetNumbers(number);
-                if (IsInternationalCode(integerValue) || IsAreaCode(integerValue))
-                {
-                    operation = new OperationResult<bool>(true, null, "Success");
-                }
-                else
-                {
-                    operation = new OperationResult<bool>(false, null, $"Invalid phone number {number}.");
-                }
-            }
-            return operation;
+            bool result = IsInternationalCode(number) || IsAreaCode(number);
+            return result;
         }
         /// <summary>
         /// 

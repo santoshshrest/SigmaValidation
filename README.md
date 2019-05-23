@@ -5,7 +5,7 @@ This plugin provides programmatic access to several data valiadtion functions. I
 Each modules consists of one or more actions that perform an operation against your data validation process.
 All of the methods will return result object indicating success or failure, any exceptions thrown and the resulting data.
 
-Target Framework: .NetFramework 4.5/4.6, .Net Standard 2.0
+### Target Framework: .NetFramework 4.5/4.6, .Net Standard 2.0 ###
 
 # SigmaValidation
 ## Validating Data
@@ -43,7 +43,10 @@ Target Framework: .NetFramework 4.5/4.6, .Net Standard 2.0
     - Eg;   
                 var phoneNumber = "+9779876543210";
                 var result = phoneNumber.IsPhoneNumber("NP");
-        
+## Email Validation
+    Validates email.
+    namespace: Core.Validation
+	
 ### `IsEmail`: 
     - Check whether the email is valid or not.
     - Operation resut is true for vaid email
@@ -51,8 +54,11 @@ Target Framework: .NetFramework 4.5/4.6, .Net Standard 2.0
     - Eg;   
                 var email = "someemail@somedomain.com";
                 var result = email.IsEmail();
+## Data Validation
+    Validates data types.
+    namespace: Core.Validation
 
-### `IsSalar`:
+### `IsScalar`:
     - Check whether the data provided is scalar
     - Data is scalar if the data type is either of string, int, double or 
     - Operation result is true for valid data type

@@ -10,30 +10,10 @@ namespace Core.Validation
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        internal static OperationResult<bool> IsUSPhoneNumber(this string number)
+        internal static bool IsUSPhoneNumber(this string number)
         {
-            var operation = new OperationResult<bool>(false);
-            CheckPhoneNumber.ValidatePhoneNumber(number, operation);
-            if (operation.Result)
-            {
-                string integerValue = CheckPhoneNumber.GetNumbers(number);
-                if (integerValue.Length >= 10 && integerValue.Length <= 13)
-                {
-                    if (CheckInitials(integerValue) && IsPhone(integerValue, 3) || IsPhone(integerValue, 0))
-                    {
-                        operation = new OperationResult<bool>(true, null, "Success");
-                    }
-                    else
-                    {
-                        operation = new OperationResult<bool>(false, null, $"Invalid phone number {number}.");
-                    }
-                }
-                else
-                {
-                    operation = new OperationResult<bool>(false, null, $"Invalid phone number {number}. Phone number is too long.");
-                }
-            }
-            return operation;
+            bool result = number.Length >= 10 && number.Length <= 13 && CheckInitials(number) && (IsPhone(number, 3) || IsPhone(number, 0));
+            return result;
         }
         /// <summary>
         /// 

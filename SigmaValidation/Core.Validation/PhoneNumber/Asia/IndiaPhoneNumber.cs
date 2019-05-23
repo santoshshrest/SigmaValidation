@@ -10,24 +10,10 @@ namespace Core.Validation
         /// </summary>
         /// <param name="number">phone number to be verified</param>
         /// <returns></returns>
-        internal static OperationResult<bool> IsIndiaPhoneNumber(this string number)
+        internal static bool IsIndiaPhoneNumber(this string number)
         {
-            var operation = new OperationResult<bool>(false);
-            CheckPhoneNumber.ValidatePhoneNumber(number, operation);
-            if (operation.Result)
-            {
-                string integerValue = CheckPhoneNumber.GetNumbers(number);
-                if (IsInternationalCode(integerValue) || IsAreaCode(integerValue) || IsCellular(integerValue))
-                {
-                    operation = new OperationResult<bool>(true, null, "Success");
-                }
-                else
-                {
-                    operation = new OperationResult<bool>(false, null, $"Invalid phone number {number}.");
-                }
-            }
-
-            return operation;
+            bool result = IsInternationalCode(number) || IsAreaCode(number) || IsCellular(number);
+            return result;
         }
         /// <summary>
         /// Verifes phone number for international code applied, checks both landline and cellular

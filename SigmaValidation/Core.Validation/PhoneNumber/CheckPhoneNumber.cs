@@ -4,15 +4,16 @@ using System.Text.RegularExpressions;
 
 namespace Core.Validation
 {
-    internal class CheckPhoneNumber
+    internal static class CheckPhoneNumber
     {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="phoneNumber"></param>
-        /// <param name="operation"></param>
-        internal static void ValidatePhoneNumber(string phoneNumber, OperationResult<bool> operation)
+        /// <returns></returns>
+        internal static OperationResult<bool> ValidatePhoneNumber(this string phoneNumber)
         {
+            var operation = new OperationResult<bool>(false);
             try
             {
                 string[] splittedNumber = SplitPhoneNumberWithMinusAndSpace(phoneNumber);
@@ -67,6 +68,7 @@ namespace Core.Validation
                 operation.Exception = ex;
                 operation.Message = ex.ReadException();
             }
+            return operation;
         }
         /// <summary>
         /// 

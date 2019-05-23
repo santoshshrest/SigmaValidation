@@ -10,24 +10,11 @@ namespace Core.Validation
         /// Verifies China phone number. Checks international, area code and ccellular phone number.
         /// </summary>
         /// <param name="number">Phone number to be verified</param>
-        /// <returns>Operation result returning result either true or false</returns>
-        internal static OperationResult<bool> IsChinaPhoneNumber(this string number)
+        /// <returns></returns>
+        internal static bool IsChinaPhoneNumber(this string number)
         {
-            var operation = new OperationResult<bool>(false);
-            CheckPhoneNumber.ValidatePhoneNumber(number, operation);
-            if (operation.Result)
-            {
-                string integerValue = CheckPhoneNumber.GetNumbers(number);
-                if (IsInternationalCode(integerValue) || IsAreaCode(integerValue) || IsCellular(integerValue))
-                {
-                    operation = new OperationResult<bool>(true, null, "Success");
-                }
-                else
-                {
-                    operation = new OperationResult<bool>(false, null, $"Invalid phone number {number}.");
-                }
-            }
-            return operation;
+            bool result = IsInternationalCode(number) || IsAreaCode(number) || IsCellular(number);
+            return result;
         }
         /// <summary>
         /// Verifies phone number for international code applied, checks both landline and cellular

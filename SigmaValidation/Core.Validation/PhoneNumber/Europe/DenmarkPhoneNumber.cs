@@ -9,24 +9,11 @@ namespace Core.Validation
         /// Check phone number for Denmark, checks country code then checks all codes such as mobile, land line, spare, split charge, free phone and premium codes
         /// </summary>
         /// <param name="number">phone number to be validated</param>
-        /// <returns>operation result object, returns true or false as a result</returns>
-        internal static OperationResult<bool> IsDenmarkPhoneNumber(this string number)
+        /// <returns></returns>
+        internal static bool IsDenmarkPhoneNumber(this string number)
         {
-            var operation = new OperationResult<bool>(false);
-            CheckPhoneNumber.ValidatePhoneNumber(number, operation);
-            if (operation.Result)
-            {
-                string integerValue = CheckPhoneNumber.GetNumbers(number);
-                if (IsInternationalCodes(integerValue) || IsAreaCode(integerValue))
-                {
-                    operation = new OperationResult<bool>(true, null, "Success");
-                }
-                else
-                {
-                    operation = new OperationResult<bool>(false, null, $"Invalid phone number {number}.");
-                }
-            }
-            return operation;
+            bool result = IsInternationalCodes(number) || IsAreaCode(number);
+            return result;
         }
         /// <summary>
         /// 
