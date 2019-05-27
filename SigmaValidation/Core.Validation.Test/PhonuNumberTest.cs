@@ -598,5 +598,109 @@ namespace Core.Validation.Test
             Assert.Equal($"Invalid phone number {phoneNumber}.", result.Message);
             Assert.Null(result.Exception);
         }
+
+        [Fact]
+        public void IsPhoneNumber_AF_CountryCode()
+        {
+            //Arrange
+            string phoneNumber = "+93788502565";
+            //Act
+            var result = phoneNumber.IsPhoneNumber("AF");
+            //Assert
+            Assert.True(result.Result);
+            Assert.Equal("Success", result.Message);
+            Assert.Null(result.Exception);
+        }
+
+        [Fact]
+        public void IsPhoneNumber_AF_InvalidCountryCode()
+        {
+            //Arrange
+            string phoneNumber = "+90788502565";
+            //Act
+            var result = phoneNumber.IsPhoneNumber("AF");
+            //Assert
+            Assert.False(result.Result);
+            Assert.Equal($"Invalid phone number {phoneNumber}.", result.Message);
+            Assert.Null(result.Exception);
+        }
+
+        [Fact]
+        public void IsPhoneNumber_AF_AreaCode()
+        {
+            //Arrange
+            string phoneNumber = "418502565";
+            //Act
+            var result = phoneNumber.IsPhoneNumber("AF");
+            //Assert
+            Assert.True(result.Result);
+            Assert.Equal("Success", result.Message);
+            Assert.Null(result.Exception);
+        }
+
+        [Fact]
+        public void IsPhoneNumber_AF_InvalidAreaCode()
+        {
+            //Arrange
+            string phoneNumber = "458502565";
+            //Act
+            var result = phoneNumber.IsPhoneNumber("SG");
+            //Assert
+            Assert.False(result.Result);
+            Assert.Equal($"Invalid phone number {phoneNumber}.", result.Message);
+            Assert.Null(result.Exception);
+        }
+
+        [Fact]
+        public void IsPhoneNumber_DE_CountryCode()
+        {
+            //Arrange
+            string phoneNumber = "+491522202520";
+            //Act
+            var result = phoneNumber.IsPhoneNumber("DE");
+            //Assert
+            Assert.True(result.Result);
+            Assert.Equal("Success", result.Message);
+            Assert.Null(result.Exception);
+        }
+
+        [Fact]
+        public void IsPhoneNumber_DE_InvalidCountryCode()
+        {
+            //Arrange
+            string phoneNumber = "+401522202520";
+            //Act
+            var result = phoneNumber.IsPhoneNumber("DE");
+            //Assert
+            Assert.False(result.Result);
+            Assert.Equal($"Invalid phone number {phoneNumber}.", result.Message);
+            Assert.Null(result.Exception);
+        }
+
+        [Fact]
+        public void IsPhoneNumber_DE_AreaCode()
+        {
+            //Arrange
+            string phoneNumber = "712152459";
+            //Act
+            var result = phoneNumber.IsPhoneNumber("DE");
+            //Assert
+            Assert.True(result.Result);
+            Assert.Equal("Success", result.Message);
+            Assert.Null(result.Exception);
+        }
+
+        [Fact]
+        public void IsPhoneNumber_DE_InvalidAreaCode()
+        {
+            //Arrange
+            string phoneNumber = "712052459";
+            //Act
+            var result = phoneNumber.IsPhoneNumber("DE");
+            //Assert
+            Assert.False(result.Result);
+            Assert.Equal($"Invalid phone number {phoneNumber}.", result.Message);
+            Assert.Null(result.Exception);
+        }
     }
 }

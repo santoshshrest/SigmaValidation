@@ -1,5 +1,4 @@
-﻿using Core.Validation.Model;
-using System.Linq;
+﻿using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Core.Validation
@@ -7,7 +6,7 @@ namespace Core.Validation
     internal static class ChinaPhoneNumber
     {
         /// <summary>
-        /// Verifies China phone number. Checks international, area code and ccellular phone number.
+        /// Verifies China phone number. Checks international, area code and cellular phone number.
         /// </summary>
         /// <param name="number">Phone number to be verified</param>
         /// <returns></returns>
@@ -21,7 +20,7 @@ namespace Core.Validation
         /// </summary>
         /// <param name="integerValue">phone number to be verified</param>
         /// <returns>bool value either true or false</returns>
-        internal static bool IsInternationalCode(string integerValue)
+        private static bool IsInternationalCode(string integerValue)
         {
             bool isValid = false;
             if (integerValue.Substring(0, 4) == "0086" && (integerValue.Length == 14 || integerValue.Length == 15))
@@ -35,7 +34,7 @@ namespace Core.Validation
         /// </summary>
         /// <param name="integerValue">phone number to be verified</param>
         /// <returns>bool value either true or false</returns>
-        internal static bool IsAreaCode(string integerValue)
+        private static bool IsAreaCode(string integerValue)
         {
             bool isValid = false;
             if (integerValue.Length == 10 || integerValue.Length == 11)
@@ -49,7 +48,7 @@ namespace Core.Validation
         /// </summary>
         /// <param name="integerValue">phone number to be verified</param>
         /// <returns>bool value either true or false</returns>
-        internal static bool IsCellular(string integerValue)
+        private static bool IsCellular(string integerValue)
         {
             bool isValid = false;
             if (integerValue.Length == 10)
@@ -64,7 +63,7 @@ namespace Core.Validation
         /// <param name="integerValue">phone number to be verified</param>
         /// <param name="startIndex">start of the index with in phone number to compare data from</param>
         /// <returns>bool value either true or false</returns>
-        internal static bool IsLandLine(string integerValue, int startIndex)
+        private static bool IsLandLine(string integerValue, int startIndex)
         {
             bool isValid = false;
             if (DataCollections.CN_AreaCodesTwoDigits.Contains(integerValue.Substring(startIndex, 2)))
@@ -83,7 +82,7 @@ namespace Core.Validation
         /// <param name="integerValue">phone number to be verified</param>
         /// <param name="startIndex">start of the index with in phone number to compare data from</param>
         /// <returns>bool value either true or false</returns>
-        internal static bool IsMobile(string integerValue, int startIndex)
+        private static bool IsMobile(string integerValue, int startIndex)
         {
             bool isValid = integerValue.Substring(startIndex, 1).Equals("1") && Regex.IsMatch($"{integerValue[1]}", "[3-9]");
             return isValid;

@@ -37,6 +37,14 @@
         /// <summary>
         /// Singapore
         /// </summary>
-        SG = 9
+        SG = 9,
+        /// <summary>
+        /// Afghanistan
+        /// </summary>
+        AF = 10,
+        /// <summary>
+        /// Germany
+        /// </summary>
+        DE = 11
     }
 }

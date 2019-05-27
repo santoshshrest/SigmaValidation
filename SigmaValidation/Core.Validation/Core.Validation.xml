@@ -65,9 +65,63 @@
             Singapore
             </summary>
         </member>
+        <member name="F:Core.Validation.CountryCodes.AF">
+            <summary>
+            Afghanistan
+            </summary>
+        </member>
+        <member name="F:Core.Validation.CountryCodes.DE">
+            <summary>
+            Germany
+            </summary>
+        </member>
+        <member name="M:Core.Validation.AfghanistanPhoneNumber.IsAfghanistanPhoneNumber(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.AfghanistanPhoneNumber.IsInternationalCode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.AfghanistanPhoneNumber.IsAreaCode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.AfghanistanPhoneNumber.IsCellular(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.AfghanistanPhoneNumber.IsLandLine(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.AfghanistanPhoneNumber.IsMobile(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="integerValue"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
         <member name="M:Core.Validation.ChinaPhoneNumber.IsChinaPhoneNumber(System.String)">
             <summary>
-            Verifies China phone number. Checks international, area code and ccellular phone number.
+            Verifies China phone number. Checks international, area code and cellular phone number.
             </summary>
             <param name="number">Phone number to be verified</param>
             <returns></returns>
@@ -424,6 +478,50 @@
             
             </summary>
             <param name="integerValue"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.GermanyPhoneNumber.IsGermanyPhoneNumber(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.GermanyPhoneNumber.IsInternationalCodes(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.GermanyPhoneNumber.IsAreaCode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.GermanyPhoneNumber.IsCellular(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.GermanyPhoneNumber.IsLandLine(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.GermanyPhoneNumber.IsMobile(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
             <param name="startIndex"></param>
             <returns></returns>
         </member>

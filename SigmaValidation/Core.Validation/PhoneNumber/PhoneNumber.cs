@@ -29,7 +29,14 @@ namespace Core.Validation
             var operation = number.ValidatePhoneNumber();
             if (operation.Result && isFromDataDictionary)
             {
-                operation = number.ValidateWithDictionary();
+                if ((number.Substring(0, 1).Equals("+") || number.Substring(0, 2).Equals("00")))
+                {
+                    operation = number.ValidateWithDictionary();
+                }
+                else
+                {
+                    operation = new OperationResult<bool>(false, null, "Phone number must have country code to validate from data dictionary. Country code must begin with either + or 00. Eg; +977 or 00977 for Nepal.");
+                }
             }
             return operation;
         }
@@ -97,6 +104,12 @@ namespace Core.Validation
                     break;
                 case CountryCodes.SG:
                     result = number.IsSingaporePhoneNumber();
+                    break;
+                case CountryCodes.AF:
+                    result = number.IsAfghanistanPhoneNumber();
+                    break;
+                case CountryCodes.DE:
+                    result = number.IsGermanyPhoneNumber();
                     break;
                 default:
                     break;
