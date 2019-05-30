@@ -110,7 +110,7 @@ namespace Core.Validation.Test
             //Act
             var result = variables.IsScalar();
             //Assert
-            Assert.True(result.Result);
+            Assert.False(result.Result);
             Assert.Equal($"Provided data is not scalar: {variables[3]}. Data Type: {variables[3].GetType().Name}", result.Message);
         }
     }

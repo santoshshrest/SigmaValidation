@@ -54,7 +54,7 @@ namespace Core.Validation
         /// <returns>OperationResult with bool result, true is correct else false</returns>
         public static OperationResult<bool> IsScalar(this IList<object> variables)
         {
-            var operation = new OperationResult<bool>(false);
+            var operation = new OperationResult<bool>(true, null, "Success");
             foreach (var variable in variables)
             {
                 if (!(variable is string) && !(variable is int) && !(variable is double) && !(variable is bool))

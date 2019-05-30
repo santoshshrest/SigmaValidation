@@ -106,6 +106,19 @@ namespace Core.Validation.Test
         }
 
         [Fact]
+        public void IsPhoneNumber_ValidFromDataDictionary()
+        {
+            //Arrange
+            string phoneNumber = "+491522202520";
+            //Act
+            var result = phoneNumber.IsPhoneNumber(true);
+            //Assert
+            Assert.True(result.Result);
+            Assert.Equal("Success", result.Message);
+            Assert.Null(result.Exception);
+        }
+
+        [Fact]
         public void IsPhoneNumber_NP_CountryCode()
         {
             //Arrange

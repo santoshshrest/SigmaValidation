@@ -45,6 +45,30 @@
         /// <summary>
         /// Germany
         /// </summary>
-        DE = 11
+        DE = 11,
+        /// <summary>
+        /// Sweden
+        /// </summary>
+        SE = 12,
+        /// <summary>
+        /// Switzerland
+        /// </summary>
+        CH = 13,
+        /// <summary>
+        /// Canada
+        /// </summary>
+        CA = 14,
+        /// <summary>
+        /// Australia
+        /// </summary>
+        AU = 15,
+        /// <summary>
+        /// South Africa
+        /// </summary>
+        ZA = 16,
+        /// <summary>
+        /// New Zealand
+        /// </summary>
+        NZ = 17
     }
 }

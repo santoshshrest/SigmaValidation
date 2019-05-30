@@ -2,16 +2,16 @@
 
 namespace Core.Validation
 {
-    internal static class USPhoneNumber
+    internal static class CanadaPhoneNumber
     {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        internal static bool IsUSPhoneNumber(this string number)
+        internal static bool IsCanadaPhoneNumber(this string number)
         {
-            bool result = IsInternationalCodes(number) || IsAreaCode(number);
+            bool result = IsInternationalCodes(number) || IsAreaCodes(number);
             return result;
         }
         /// <summary>
@@ -33,7 +33,7 @@ namespace Core.Validation
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        private static bool IsAreaCode(string number)
+        private static bool IsAreaCodes(string number)
         {
             bool isValid = false;
             if (number.Length.Equals(10))
@@ -45,13 +45,13 @@ namespace Core.Validation
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="integerValue"></param>
+        /// <param name="number"></param>
         /// <param name="startIndex"></param>
         /// <returns></returns>
-        private static bool IsPhone(string integerValue, int startIndex)
+        private static bool IsPhone(string number, int startIndex)
         {
-            bool isPhone = DataCollections.US_AreaCodes.Contains(integerValue.Substring(startIndex, 3));
-            return isPhone;
+            bool isValid = DataCollections.CA_AreaCodes.Contains(number.Substring(startIndex, 3));
+            return isValid;
         }
     }
 }

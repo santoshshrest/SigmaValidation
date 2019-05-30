@@ -74,47 +74,45 @@ namespace Core.Validation
         /// <returns></returns>
         private static bool ValidateWithCountry(this string number, string code)
         {
-            var operation = new OperationResult<bool>(false);
-            bool result = false;
             switch ((CountryCodes)Enum.Parse(typeof(CountryCodes), code, true))
             {
                 case CountryCodes.NP:
-                    result = number.IsNepaliPhoneNumber();
-                    break;
+                    return number.IsNepaliPhoneNumber();
                 case CountryCodes.US:
-                    result = number.IsUSPhoneNumber();
-                    break;
+                    return number.IsUSPhoneNumber();
                 case CountryCodes.DK:
-                    result = number.IsDenmarkPhoneNumber();
-                    break;
+                    return number.IsDenmarkPhoneNumber();
                 case CountryCodes.IN:
-                    result = number.IsIndiaPhoneNumber();
-                    break;
+                    return number.IsIndiaPhoneNumber();
                 case CountryCodes.CN:
-                    result = number.IsChinaPhoneNumber();
-                    break;
+                    return number.IsChinaPhoneNumber();
                 case CountryCodes.UK:
-                    result = number.IsUKPhoneNumber();
-                    break;
+                    return number.IsUKPhoneNumber();
                 case CountryCodes.TH:
-                    result = number.IsThailandPhoneNumber();
-                    break;
+                    return number.IsThailandPhoneNumber();
                 case CountryCodes.MY:
-                    result = number.IsMalaysiaPhoneNumber();
-                    break;
+                    return number.IsMalaysiaPhoneNumber();
                 case CountryCodes.SG:
-                    result = number.IsSingaporePhoneNumber();
-                    break;
+                    return number.IsSingaporePhoneNumber();
                 case CountryCodes.AF:
-                    result = number.IsAfghanistanPhoneNumber();
-                    break;
+                    return number.IsAfghanistanPhoneNumber();
                 case CountryCodes.DE:
-                    result = number.IsGermanyPhoneNumber();
-                    break;
+                    return number.IsGermanyPhoneNumber();
+                case CountryCodes.SE:
+                    return number.IsSwedenPhoneNumber();
+                case CountryCodes.CH:
+                    return number.IsSwitzerlandPhoneNumber();
+                case CountryCodes.CA:
+                    return number.IsCanadaPhoneNumber();
+                case CountryCodes.AU:
+                    return number.IsAustraliaPhoneNumber();
+                case CountryCodes.ZA:
+                    return number.IsSouthAfricaPhoneNumber();
+                case CountryCodes.NZ:
+                    return number.IsNewZealandPhoneNumber();
                 default:
-                    break;
+                    return false;
             }
-            return result;
         }
         /// <summary>
         /// 
