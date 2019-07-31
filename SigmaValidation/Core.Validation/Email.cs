@@ -4,6 +4,9 @@ using System.Text.RegularExpressions;
 
 namespace Core.Validation
 {
+    /// <summary>
+    /// Validation of email address provided.
+    /// </summary>
     public static class Email
     {
         /// <summary>

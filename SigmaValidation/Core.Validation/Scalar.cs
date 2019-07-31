@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Core.Validation
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class Scalar
     {
         /// <summary>

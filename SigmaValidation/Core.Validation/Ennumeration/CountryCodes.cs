@@ -69,6 +69,34 @@
         /// <summary>
         /// New Zealand
         /// </summary>
-        NZ = 17
+        NZ = 17,
+        /// <summary>
+        /// Japan
+        /// </summary>
+        JP = 18,
+        /// <summary>
+        /// France
+        /// </summary>
+        FR = 19,
+        /// <summary>
+        /// Finland
+        /// </summary>
+        FI = 20,
+        /// <summary>
+        /// Argentina
+        /// </summary>
+        AR = 21,
+        /// <summary>
+        /// South Korea
+        /// </summary>
+        KR = 22,
+        /// <summary>
+        /// Nigeria
+        /// </summary>
+        NG = 23,
+        /// <summary>
+        /// Antigua and Barbuda
+        /// </summary>
+        AG = 24
     }
 }

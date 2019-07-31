@@ -105,6 +105,80 @@
             New Zealand
             </summary>
         </member>
+        <member name="F:Core.Validation.CountryCodes.JP">
+            <summary>
+            Japan
+            </summary>
+        </member>
+        <member name="F:Core.Validation.CountryCodes.FR">
+            <summary>
+            France
+            </summary>
+        </member>
+        <member name="F:Core.Validation.CountryCodes.FI">
+            <summary>
+            Finland
+            </summary>
+        </member>
+        <member name="F:Core.Validation.CountryCodes.AR">
+            <summary>
+            Argentina
+            </summary>
+        </member>
+        <member name="F:Core.Validation.CountryCodes.KR">
+            <summary>
+            South Korea
+            </summary>
+        </member>
+        <member name="F:Core.Validation.CountryCodes.NG">
+            <summary>
+            Nigeria
+            </summary>
+        </member>
+        <member name="M:Core.Validation.NigeriaPhoneNumber.IsNigeriaPhoneNumber(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.NigeriaPhoneNumber.IsInternationalCodes(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.NigeriaPhoneNumber.IsAreaCodes(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.NigeriaPhoneNumber.IsCellular(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.NigeriaPhoneNumber.IsLandLine(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.NigeriaPhoneNumber.IsMobile(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
         <member name="M:Core.Validation.SouthAfricaPhoneNumber.IsSouthAfricaPhoneNumber(System.String)">
             <summary>
             
@@ -274,6 +348,50 @@
             <param name="startIndex"></param>
             <returns>bool value either true or false</returns>
         </member>
+        <member name="M:Core.Validation.JapanPhoneNumber.IsJapanPhoneNumber(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.JapanPhoneNumber.IsInternationalCode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.JapanPhoneNumber.IsAreaCodes(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.JapanPhoneNumber.IsCellular(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.JapanPhoneNumber.IsLandLine(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.JapanPhoneNumber.IsMobile(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
         <member name="M:Core.Validation.MalaysiaPhoneNumber.IsMalaysiaPhoneNumber(System.String)">
             <summary>
             Verifies Malaysia phone number. Checks international, area code and cellular phone number.
@@ -406,6 +524,50 @@
             <param name="integerValue">Phone number to be verified</param>
             <param name="startIndex">start of the index with in phone number to compare data from</param>
             <returns>bool value either true or false</returns>
+        </member>
+        <member name="M:Core.Validation.SouthKoreaPhoneNumber.IsSouthKoreaPhoneNumber(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.SouthKoreaPhoneNumber.IsInternationalCodes(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.SouthKoreaPhoneNumber.IsAreaCode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.SouthKoreaPhoneNumber.IsCellular(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.SouthKoreaPhoneNumber.IsLandLine(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.SouthKoreaPhoneNumber.IsMobileNumber(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
         </member>
         <member name="M:Core.Validation.ThailandPhoneNumber.IsThailandPhoneNumber(System.String)">
             <summary>
@@ -626,6 +788,87 @@
             
             </summary>
             <param name="integerValue"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.FinlandPhoneNumber.IsFinlandPhoneNumber(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.FinlandPhoneNumber.IsInternationalCodes(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.FinlandPhoneNumber.IsAreaCode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.FinlandPhoneNumber.IsCellular(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.FinlandPhoneNumber.IsLandLine(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.FinlandPhoneNumber.IsMobile(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.FrancePhoneNumber.IsFrancePhoneNumber(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.FrancePhoneNumber.IsInternationalCodes(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.FrancePhoneNumber.IsCellularOrPhone(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.FrancePhoneNumber.IsLandLine(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.FrancePhoneNumber.IsMobile(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
             <param name="startIndex"></param>
             <returns></returns>
         </member>
@@ -899,6 +1142,50 @@
             
             </summary>
             <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.ArgentinaPhoneNumber.IsArgentinaPhoneNumber(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.ArgentinaPhoneNumber.IsInternationalCodes(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.ArgentinaPhoneNumber.IsAreaCode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.ArgentinaPhoneNumber.IsCellular(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.ArgentinaPhoneNumber.IsLandLine(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Validation.ArgentinaPhoneNumber.IsMobile(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <param name="startIndex"></param>
             <returns></returns>
         </member>
         <member name="M:Core.Validation.Scalar.IsScalar(System.Object)">

@@ -110,6 +110,20 @@ namespace Core.Validation
                     return number.IsSouthAfricaPhoneNumber();
                 case CountryCodes.NZ:
                     return number.IsNewZealandPhoneNumber();
+                case CountryCodes.JP:
+                    return number.IsJapanPhoneNumber();
+                case CountryCodes.FR:
+                    return number.IsFrancePhoneNumber();
+                case CountryCodes.FI:
+                    return number.IsFinlandPhoneNumber();
+                case CountryCodes.AR:
+                    return number.IsArgentinaPhoneNumber();
+                case CountryCodes.KR:
+                    return number.IsSouthKoreaPhoneNumber();
+                case CountryCodes.NG:
+                    return number.IsNigeriaPhoneNumber();
+                case CountryCodes.AG:
+                    return number.IsAntiguaBarbudaPhoneNumber();
                 default:
                     return false;
             }

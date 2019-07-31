@@ -19,8 +19,4 @@
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
     <DocumentationFile>C:\Users\Santosh\Documents\Projects\Santosh\Nuget\SigmaValidation\SigmaValidation\Core.Validation\Core.Validation.xml</DocumentationFile>
   </PropertyGroup>
-  <ItemGroup>
-    <Folder Include="DataHelper\PhoneNumber\SouthAmerica\" />
-    <Folder Include="PhoneNumber\SouthAmerica\" />
-  </ItemGroup>
 </Project>
