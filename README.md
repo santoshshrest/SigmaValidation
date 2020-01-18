@@ -38,6 +38,20 @@ All of the methods will return result object indicating success or failure, any 
         - Thailand (TH)
         - Malaysia (MY)
         - Singapore (SG)
+        - Afghanistan (AF)
+        - Germany (DE)
+        - Sweden (SE)
+        - Switzerland (CH)
+        - Canada (CA)
+        - Australia (AU)
+        - South Africa (ZA)
+        - Japan (JP)
+        - Franch (FR)
+        - Finland (FI)
+        - Argentina (AR)
+        - South Korea (KR)
+        - Nigeria (NG)
+        - Antigua Barbuda (AG)
     - Result is true for valid phone number
     - Result is false for invalid phone number and message is set in error message, if exception has occured while checking then Exception is set
     - Eg;   

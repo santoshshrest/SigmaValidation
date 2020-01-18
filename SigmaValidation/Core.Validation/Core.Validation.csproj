@@ -15,8 +15,11 @@
     <FileVersion>1.0.5.0</FileVersion>
     <Copyright>Copyright ©2019 AureoleSoft</Copyright>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <AssemblyName>Core.Validation</AssemblyName>
+    <RootNamespace>Core.Validation</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
-    <DocumentationFile>C:\Users\Santosh\Documents\Projects\Santosh\Nuget\SigmaValidation\SigmaValidation\Core.Validation\Core.Validation.xml</DocumentationFile>
+    <DocumentationFile>bin\Core.Validation.xml</DocumentationFile>
+    <OutputPath>bin\</OutputPath>
   </PropertyGroup>
 </Project>

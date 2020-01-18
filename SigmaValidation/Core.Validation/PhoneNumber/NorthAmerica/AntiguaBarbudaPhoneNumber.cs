@@ -2,6 +2,9 @@
 
 namespace Core.Validation
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal static class AntiguaBarbudaPhoneNumber
     {
         /// <summary>
